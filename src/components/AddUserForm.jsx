@@ -20,15 +20,16 @@ const AddUserForm = ({ onSubmit, onClose }) => {
   };
 
   return (
-    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
-      <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 w-full max-w-md">
-        <button
-          type="button"
-          onClick={onClose}
-          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:text-white dark:hover:text-neutral-400"
-        >
-          &times;
-        </button>
+    <div className="fixed inset-0 bg-black bg-opacity-50 flex justify-center items-center z-50">
+      {/* Modal */}
+      <div
+        style={{
+          left: "45%", // Adjust this value for the left margin
+          top: "50%",
+          transform: "translateY(-50%)", // Center vertically
+        }}
+        className="absolute bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 w-full max-w-md"
+      >
         <form onSubmit={handleSubmit} className="space-y-4">
           <div>
             <label
@@ -154,7 +155,7 @@ const AddUserForm = ({ onSubmit, onClose }) => {
             </button>
             <button
               type="submit"
-              className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+              className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-blue-600 text-white hover:bg-blue-700 focus:outline-none focus:bg-blue-700 disabled:opacity-50 disabled:pointer-events-none"
             >
               Add User
             </button>
