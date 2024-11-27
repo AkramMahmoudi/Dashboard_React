@@ -96,8 +96,7 @@ const Content = () => {
               {showAddUserForm ? "Cancel" : "Add User"}
             </button>
           </div>
-          {/* Add User Form */}
-          {showAddUserForm && <AddUserForm onSubmit={handleAddUser} />}
+
           {/* table */}
           <div className="flex flex-col">
             <div className="-m-1.5 overflow-x-auto">
@@ -286,6 +285,15 @@ const Content = () => {
               </div>
             </div>
           </div>
+        )}
+        {/* Add User Form */}
+        {showAddUserForm && (
+          <AddUserForm
+            onClose={function () {
+              setShowAddUserForm(false);
+            }}
+            onSubmit={handleAddUser}
+          />
         )}
       </div>
     </>

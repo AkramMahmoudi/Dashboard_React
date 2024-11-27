@@ -1,6 +1,5 @@
 import React, { useState } from "react";
-const AddUserForm = ({ onSubmit }) => {
-  
+const AddUserForm = ({ onSubmit, onClose }) => {
   const [formData, setFormData] = useState({
     profile_picture: "",
     username: "",
@@ -21,74 +20,148 @@ const AddUserForm = ({ onSubmit }) => {
   };
 
   return (
-    <form onSubmit={handleSubmit} className="space-y-4">
-      <div>
-        <label>Profile Picture URL:</label>
-        <input
-          type="text"
-          name="profile_picture"
-          value={formData.profile_picture}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
+    <div className="fixed inset-0 flex items-center justify-center z-50 bg-black bg-opacity-50">
+      <div className="bg-white dark:bg-neutral-800 rounded-lg shadow-lg p-6 w-full max-w-md">
+        <button
+          type="button"
+          onClick={onClose}
+          className="absolute top-2 right-2 text-gray-500 hover:text-gray-800 dark:text-white dark:hover:text-neutral-400"
+        >
+          &times;
+        </button>
+        <form onSubmit={handleSubmit} className="space-y-4">
+          <div>
+            <label
+              htmlFor="profile-picture"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Profile Picture URL
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="profile_picture"
+                value={formData.profile_picture}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter profile picture URL"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="username"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Username
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="username"
+                value={formData.username}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter username"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="email"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Email
+            </label>
+            <div className="mt-2">
+              <input
+                type="email"
+                name="email"
+                value={formData.email}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter email"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="password"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Password
+            </label>
+            <div className="mt-2">
+              <input
+                type="password"
+                name="password"
+                value={formData.password}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter password"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="role"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Role
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="role"
+                value={formData.role}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter role"
+              />
+            </div>
+          </div>
+
+          <div>
+            <label
+              htmlFor="phone-number"
+              className="inline-block text-sm font-medium dark:text-white"
+            >
+              Phone Number
+            </label>
+            <div className="mt-2">
+              <input
+                type="text"
+                name="phone_number"
+                value={formData.phone_number}
+                onChange={handleChange}
+                className="py-2 px-3 block w-full border-gray-200 shadow-sm text-sm rounded-lg focus:border-blue-500 focus:ring-blue-500 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-900 dark:border-neutral-700 dark:text-neutral-400 dark:placeholder-neutral-500 dark:focus:ring-neutral-600"
+                placeholder="Enter phone number"
+              />
+            </div>
+          </div>
+
+          <div className="mt-5 flex justify-end gap-x-2">
+            <button
+              type="button"
+              onClick={onClose}
+              className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-gray-200 bg-white text-gray-800 shadow-sm hover:bg-gray-50 focus:outline-none focus:bg-gray-50 disabled:opacity-50 disabled:pointer-events-none dark:bg-neutral-800 dark:border-neutral-700 dark:text-white dark:hover:bg-neutral-700 dark:focus:bg-neutral-700"
+            >
+              Cancel
+            </button>
+            <button
+              type="submit"
+              className="py-2 px-3 inline-flex items-center gap-x-2 text-sm font-medium rounded-lg border border-transparent bg-green-600 text-white hover:bg-green-700 focus:outline-none focus:bg-green-700 disabled:opacity-50 disabled:pointer-events-none"
+            >
+              Add User
+            </button>
+          </div>
+        </form>
       </div>
-      <div>
-        <label>Username:</label>
-        <input
-          type="text"
-          name="username"
-          value={formData.username}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
-      </div>
-      <div>
-        <label>Email:</label>
-        <input
-          type="email"
-          name="email"
-          value={formData.email}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
-      </div>
-      <div>
-        <label>Password:</label>
-        <input
-          type="password"
-          name="password"
-          value={formData.password}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
-      </div>
-      <div>
-        <label>Role:</label>
-        <input
-          type="text"
-          name="role"
-          value={formData.role}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
-      </div>
-      <div>
-        <label>Phone Number:</label>
-        <input
-          type="text"
-          name="phone_number"
-          value={formData.phone_number}
-          onChange={handleChange}
-          className="block w-full border rounded-md px-2 py-1"
-        />
-      </div>
-      <button
-        type="submit"
-        className="px-4 py-2 bg-green-600 text-white rounded-md"
-      >
-        Add User
-      </button>
-    </form>
+    </div>
   );
 };
 
