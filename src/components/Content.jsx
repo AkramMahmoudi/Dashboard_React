@@ -82,138 +82,139 @@ const Content = () => {
   }
 
   return (
-    <div className="w-full lg:ps-64">
-      <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 relative">
-        {/* <CardHeader /> */}
-        {/* Add User Button */}
-        <div className="flex justify-between items-center">
-          <h2 className="text-lg font-semibold">Users Table</h2>
-          <button
-            onClick={() => setShowAddUserForm((prev) => !prev)}
-            className="px-4 py-2 bg-blue-600 text-white rounded-md"
-          >
-            {showAddUserForm ? "Cancel" : "Add User"}
-          </button>
-        </div>
-        {/* Add User Form */}
-        {showAddUserForm && <AddUserForm onSubmit={handleAddUser} />}
-        {/* table */}
-        <div className="flex flex-col">
-          <div className="-m-1.5 overflow-x-auto">
-            <div className="p-1.5 min-w-full inline-block align-middle">
-              <div className="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">
-                <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
-                  <thead className="bg-gray-50 dark:bg-neutral-700">
-                    <tr>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Profile Picture
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        ID
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Username
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Email
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Role
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Phone
-                      </th>
-                      <th
-                        scope="col"
-                        className="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
-                      >
-                        Actions
-                      </th>
-                    </tr>
-                  </thead>
-                  <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
-                    {currentData.map((user) => (
-                      <tr key={user.id}>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
-                          <img
-                            className="inline-block size-8 rounded-full"
-                            src={
-                              user.profile_picture ||
-                              "https://avatars.githubusercontent.com/u/88598653"
-                            }
-                            alt="Avatar"
-                          />
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                          {user.id}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                          {user.username}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                          {user.email}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                          {user.role}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
-                          {user.phone_number}
-                        </td>
-                        <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
-                          <button
-                            onClick={() => openConfirmDialog(user.id)}
-                            className="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
-                          >
-                            Delete
-                          </button>
-                        </td>
+    <>
+      <div className="w-full lg:ps-64">
+        <div className="p-4 sm:p-6 space-y-4 sm:space-y-6 relative">
+          {/* <CardHeader /> */}
+          {/* Add User Button */}
+          <div className="flex justify-between items-center">
+            <h2 className="text-lg font-semibold">Users Table</h2>
+            <button
+              onClick={() => setShowAddUserForm((prev) => !prev)}
+              className="px-4 py-2 bg-blue-600 text-white rounded-md"
+            >
+              {showAddUserForm ? "Cancel" : "Add User"}
+            </button>
+          </div>
+          {/* Add User Form */}
+          {showAddUserForm && <AddUserForm onSubmit={handleAddUser} />}
+          {/* table */}
+          <div className="flex flex-col">
+            <div className="-m-1.5 overflow-x-auto">
+              <div className="p-1.5 min-w-full inline-block align-middle">
+                <div className="border rounded-lg shadow overflow-hidden dark:border-neutral-700 dark:shadow-gray-900">
+                  <table className="min-w-full divide-y divide-gray-200 dark:divide-neutral-700">
+                    <thead className="bg-gray-50 dark:bg-neutral-700">
+                      <tr>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Profile Picture
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          ID
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Username
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Email
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Role
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-start text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Phone
+                        </th>
+                        <th
+                          scope="col"
+                          className="px-6 py-3 text-end text-xs font-medium text-gray-500 uppercase dark:text-neutral-400"
+                        >
+                          Actions
+                        </th>
                       </tr>
-                    ))}
-                  </tbody>
-                </table>
+                    </thead>
+                    <tbody className="divide-y divide-gray-200 dark:divide-neutral-700">
+                      {currentData.map((user) => (
+                        <tr key={user.id}>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm font-medium text-gray-800 dark:text-neutral-200">
+                            <img
+                              className="inline-block size-8 rounded-full"
+                              src={
+                                user.profile_picture ||
+                                "https://avatars.githubusercontent.com/u/88598653"
+                              }
+                              alt="Avatar"
+                            />
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                            {user.id}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                            {user.username}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                            {user.email}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                            {user.role}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-sm text-gray-800 dark:text-neutral-200">
+                            {user.phone_number}
+                          </td>
+                          <td className="px-6 py-4 whitespace-nowrap text-end text-sm font-medium">
+                            <button
+                              onClick={() => openConfirmDialog(user.id)}
+                              className="px-3 py-1 bg-red-600 text-white rounded-md hover:bg-red-700 focus:outline-none focus:ring-2 focus:ring-red-500"
+                            >
+                              Delete
+                            </button>
+                          </td>
+                        </tr>
+                      ))}
+                    </tbody>
+                  </table>
+                </div>
               </div>
             </div>
           </div>
+          {/* Pagination */}
+          <div className="mt-4 flex justify-between items-center">
+            <button
+              onClick={handlePrev}
+              disabled={currentPage === 1}
+              className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md disabled:opacity-50"
+            >
+              Prev
+            </button>
+            <p>
+              Page {currentPage} of {totalPages}
+            </p>
+            <button
+              onClick={handleNext}
+              disabled={currentPage === totalPages}
+              className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md disabled:opacity-50"
+            >
+              Next
+            </button>
+          </div>
         </div>
-        {/* Pagination */}
-        <div className="mt-4 flex justify-between items-center">
-          <button
-            onClick={handlePrev}
-            disabled={currentPage === 1}
-            className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md disabled:opacity-50"
-          >
-            Prev
-          </button>
-          <p>
-            Page {currentPage} of {totalPages}
-          </p>
-          <button
-            onClick={handleNext}
-            disabled={currentPage === totalPages}
-            className="px-4 py-2 bg-gray-300 text-gray-800 rounded-md disabled:opacity-50"
-          >
-            Next
-          </button>
-        </div>
-
         {/* Confirmation Dialog */}
         {showConfirmDialog && (
           <div
@@ -287,7 +288,7 @@ const Content = () => {
           </div>
         )}
       </div>
-    </div>
+    </>
   );
 };
 
